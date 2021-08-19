@@ -4,14 +4,14 @@
 This terraform module could be useful for when a user would like to build a validation method in order to
 validate domains and emails through the use of resources such as SES's and Route 53 records.
 # -------------------------------------------------------------------------------------------------
-### - Default provider
+```terraform
 provider "aws" {
   version = "3.4.0"
   region  = "eu-west-2"
 
 }
 
-# -------------------------------------------------------------------------------------------------
+
 ### - Creates a domain
 resource "aws_ses_domain_identity" "this" {
 domain = var.domain
@@ -32,12 +32,7 @@ resource "aws_ses_domain_mail_from" "this" {
 resource "aws_ses_email_identity" "this" {
 email = var.email
 }
-# -------------------------------------------------------------------------------------------------
 
-
-# -------------------------------------------------------------------------------------------------
-# Route 53 resources for SES/Domains
-# -------------------------------------------------------------------------------------------------
 resource "aws_route53_record" "this" {
   zone_id = var.zone_id //main zone_id
   name    = var.domain
@@ -77,4 +72,4 @@ resource "aws_route53_record" "spf" {
     "v=spf1 include:amazonses.com ~all"
   ]
 }
-# -------------------------------------------------------------------------------------------------
+```
