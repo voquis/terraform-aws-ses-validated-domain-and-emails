@@ -2,13 +2,14 @@
 
 This Terraform module allows the user to create specific domains in order to create a validation method that will validate the domains and emails that're created through the use of the resources below by using a combination of SES domains and route 53 resources.
 
+
 Using this module creates the following resources:
 * A domain
 * A DKIM domain to generate DKIM tokens
 * An SES mail domain
 * An Email Identity resource for emails to be created
 * Various Route53 records for each domain created
-# -------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 ```terraform
 provider "aws" {
   version = "3.4.0"

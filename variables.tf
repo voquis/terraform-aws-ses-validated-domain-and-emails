@@ -12,3 +12,4 @@ variable "zone_id" {
   description = "zone_id for the route 53 resource"
   type        = string
 }
+
