@@ -1,8 +1,13 @@
-# -------------------------------------------------------------------------------------------------
 # SES validation for domains and emails.
 
-This terraform module could be useful for when a user would like to build a validation method in order to
-validate domains and emails through the use of resources such as SES's and Route 53 records.
+This Terraform module allows the user to create specific domains in order to create a validation method that will validate the domains and emails that're created through the use of the resources below by using a combination of SES domains and route 53 resources.
+
+Using this module creates the following resources:
+* A domain
+* A DKIM domain to generate DKIM tokens
+* An SES mail domain
+* An Email Identity resource for emails to be created
+* Various Route53 records for each domain created
 # -------------------------------------------------------------------------------------------------
 ```terraform
 provider "aws" {
@@ -17,7 +22,7 @@ resource "aws_ses_domain_identity" "this" {
 domain = var.domain
 }
 
-### - Creates the dkim domian
+### - Creates the dkim domain
 resource "aws_ses_domain_dkim" "this" {
   domain = aws_ses_domain_identity.this.domain
 }

@@ -1,4 +1,3 @@
-
 variable "domain" {
   description = "ses domain identity, has to be listed as the domain"
   type        = string
